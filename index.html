@@ -143,18 +143,20 @@
     <div class="card">
       <h1>Web Uploader</h1>
       <p id="pesan">Upload Pertama Di GitHub, setelah itu lanjut ke Vercel.</p>
-      <button class="btn" onclick="vercel()">Upload Vercel</button>
       <button class="btn" onclick="github()">Upload GitHub</button>
+      <button class="btn" onclick="vercel()">Upload Vercel</button>
     </div>
   </div>
 
   <script>
-    function vercel() {
-      window.location.href = 'https://vercel.com/madzs-projects-806be33a';
+    function github() {
+      window.open('https://github.com/login')
+    alert('Login / Buat akun Github, Lalu Buat Repository Anda.')
     }
 
-    function github() {
-      window.location.href = 'https://github.com/dashboard';
+    function vercel() {
+      window.open('https://vercel.com/login')
+    alert('Login / Buat akun Vercel Menggunakan Akun Github')
     }
   </script>
 </body>
