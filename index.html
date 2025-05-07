@@ -20,13 +20,6 @@
       flex-direction: column;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       background-size: 400% 400%;
-      
-    }
-
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
     }
 
     header {
@@ -59,8 +52,9 @@
     .container {
       flex: 1;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       padding: 20px;
     }
 
@@ -69,17 +63,11 @@
       backdrop-filter: blur(10px);
       border-radius: 20px;
       padding: 30px;
-      border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
       text-align: center;
       max-width: 420px;
       width: 100%;
       animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -90,11 +78,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradientText 4s ease infinite;
-    }
-
-    @keyframes gradientText {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
     }
 
     p {
@@ -127,9 +110,23 @@
       transform: scale(0.98);
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientText {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease;
     }
   </style>
 </head>
@@ -142,21 +139,30 @@
   <div class="container">
     <div class="card">
       <h1>Web Uploader</h1>
-      <p id="pesan">Upload Pertama Di GitHub, setelah itu lanjut ke Vercel.</p>
+      <p id="pesan">Klik Info Untuk Mengetahui Lebih Lanjut.</p>
       <button class="btn" onclick="github()">Upload GitHub</button>
-      <button class="btn" onclick="vercel()">Upload Vercel</button>
+      <button class="btn" onclick="vercel()">Lanjut Vercel</button>
     </div>
+    <!-- Tombol Info di luar kartu dengan animasi -->
+    <button class="btn fade-in" onclick="info()">Baca Info</button>
   </div>
 
   <script>
     function github() {
+      alert('Login / Buat akun Github, Lalu Buat Repository Anda.')
       window.open('https://github.com/login')
-    alert('Login / Buat akun Github, Lalu Buat Repository Anda.')
+      console.log('Anda Beralih Ke Github');
     }
 
     function vercel() {
+      alert('Login / Buat akun Vercel Menggunakan Akun Github')
       window.open('https://vercel.com/login')
-    alert('Login / Buat akun Vercel Menggunakan Akun Github')
+      console.log('Anda Beralih Ke Vercel');
+    }
+
+    function info() {
+      alert('Panduan:\n\n1. Klik "Upload GitHub" untuk login/buat akun GitHub, lalu buat repository dan upload file Anda.\n\n2. Klik "Lanjut Vercel" untuk login ke Vercel menggunakan akun GitHub, pilih repository Anda dan klik tombol Visit untuk mendapatkan link website.\n\n3. Website Anda sekarang online!');
+      console.log('Info ditampilkan');
     }
   </script>
 </body>
